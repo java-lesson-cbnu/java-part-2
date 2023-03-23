@@ -9,6 +9,7 @@ public class ScoreAverage {
         System.out.printf("당신의 점수는 %.2f점 입니다.%n", score);
         System.out.printf("당신은 %s 등급 입니다.", estimateGrade(score));
     }
+    
     /**
      * 해당 메서드는 다음과 같은 역할을 가져야 합니다 :
      * 사용자가 0을 입력하기 전까지 계속해서 score에 숫자를 더해야 합니다.
@@ -19,7 +20,11 @@ public class ScoreAverage {
         int score = 0;
         while (true) {
             loop++;
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            int score2 = scanner.nextInt();
+            if (score2 == 0) {
+                break;
+            }
+            score += score2;
         }
         return ((double)score) / ((double)loop);
     }
@@ -36,7 +41,16 @@ public class ScoreAverage {
      * @param averageScore 평균 점수
      */
     private static String estimateGrade(double averageScore) {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        if (averageScore >= 90.0) {
+            return "A";
+        }
+        if (averageScore >= 80.0) {
+            return "B";
+        }
+        if (averageScore >= 70.0) {
+            return "C";
+        }
+        return "D";
     }
 
 }
